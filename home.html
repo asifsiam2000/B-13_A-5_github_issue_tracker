@@ -47,9 +47,9 @@
 
         <!-- Button of hero section  -->
         <div class="bg-white shadow-md space-x-3 py-3 px-5 rounded-md">
-            <button class="btn btn-active btn-primary px-7 ">All</button>
-            <button class="btn px-7 ">Open</button>
-            <button class="btn px-7 ">closed</button>
+            <button id="all-btn" onclick="showAll('all-btn')" class="btn btn-active btn-primary px-7 ">All</button>
+            <button id="open-btn" onclick="showAll('open-btn')" class="btn px-7 ">Open</button>
+            <button id="close-btn" onclick="showAll('close-btn')" class="btn px-7 ">closed</button>
         </div>
 
 
@@ -60,7 +60,7 @@
                     <img src="./assets/Aperture.png" alt="">
                 </div>
                 <div>
-                    <h2 class="font-bold text-xl">50 Issues</h2>
+                    <h2 class="font-bold text-xl"><span id="cnt-issue">50</span> Issues</h2>
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
@@ -90,7 +90,7 @@
 
         <!-- card section of hero  -->
         <div class="bg-white shadow-md rounded-md">
-            <div id="card-container" class="p-5 grid grid-cols-2 sm:grid-cols-4 gap-5 ">
+            <div id="card-container" class="p-5 grid grid-cols-2 sm:grid-cols-3 gap-5 ">
 
                 <!-- <div class="space-y-2 p-4 shadow-md">
                     <div class="flex justify-between items-center">

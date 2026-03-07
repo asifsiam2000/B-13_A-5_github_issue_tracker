@@ -1,16 +1,29 @@
 const cardContainer = document.getElementById('card-container');
 const loading = document.getElementById('loading');
+const cntIssue = document.getElementById('cnt-issue');
+const allBtn = document.getElementById('all-btn');
+const openBtn = document.getElementById('open-btn');
+const closeBtn = document.getElementById('close-btn');
+
+let arr = [];
+
+function ShowLengthOfData(len) {
+    cntIssue.innerText = len;
+}
+
 
 function displayIssur(data) {
     cardContainer.innerHTML = '';
 
-    data.data.forEach(element => {
 
+    // ShowLengthOfData(data.length);
+
+
+    data.forEach(element => {
+        // arr.push(element);
         const levelElement = element.labels.map(item => {
             return `<span class="text-xs font-bold px-1  text-black bg-[#ebab63] rounded-full">${item}</span>`}).join('');
-        
-        
-        
+    
         const div_card = document.createElement('div');
 
         if (element.status == 'open') {
@@ -54,7 +67,7 @@ function displayIssur(data) {
 
                         <div class="flex justify-between items-center">
                             <p>${element.author}</p>
-                            <p>${element.updatedAt}</p>
+                            <p>Updated ${ element.updatedAt}</p>
                         </div>
                         
                     </div>
@@ -66,12 +79,50 @@ function displayIssur(data) {
 
 async function allIssue() {
     showLoading();
+
     const response = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await response.json();
-    displayIssur(data);
+    arr = data.data;
+    displayIssur(arr);
+    ShowLengthOfData(arr.length);
     hiddenLoading();
 }
 
+function showAll(id) {
+    
+    if (id == 'all-btn') {
+        allBtn.classList.add('btn-active' , 'btn-primary');
+        openBtn.classList.remove('btn-active' , 'btn-primary');
+        closeBtn.classList.remove('btn-active', 'btn-primary');
+        showLoading();
+        displayIssur(arr);
+        ShowLengthOfData(arr.length);
+        hiddenLoading();
+    }
+    else if (id == 'open-btn') {
+        const filterArr = arr.filter(item => item.status == 'open');
+        allBtn.classList.remove('btn-active' , 'btn-primary');
+        openBtn.classList.add('btn-active' , 'btn-primary');
+        closeBtn.classList.remove('btn-active', 'btn-primary');
+        showLoading();
+        displayIssur(filterArr);
+        ShowLengthOfData(filterArr.length);
+        hiddenLoading();
+    }
+    else {
+        
+        const filterArr = arr.filter(item => item.status == 'closed');
+        allBtn.classList.remove('btn-active' , 'btn-primary');
+        openBtn.classList.remove('btn-active' , 'btn-primary');
+        closeBtn.classList.add('btn-active', 'btn-primary');
+        showLoading();
+        displayIssur(filterArr);
+        ShowLengthOfData(filterArr.length);
+        console.log(filterArr.length);
+        hiddenLoading();
+    }
+     
+ }
 
 
 function showLoading() {

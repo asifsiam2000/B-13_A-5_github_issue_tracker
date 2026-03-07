@@ -1,0 +1,10 @@
+.show-effect-open {
+    border-top: 6px solid rgb(61, 172, 61);
+    border-radius: 20px;
+}
+
+.show-effect-close {
+    border-top: 6px solid rgb(190, 12, 235);
+    border-radius: 20px;
+}
+

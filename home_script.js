@@ -105,7 +105,7 @@ async function openModal(id) {
 
                 <p class="text-[#64748B]">${allData.description}</p>
 
-                <div class="bg-base-200 rounded-lg flex gap-10 p-5">
+                <div class="bg-base-200 rounded-lg flex gap-40 p-5">
                     <div>
                         <p class="text-[#64748B]  py-1">Assignee:</p>
                         <p class="font-bold  ">${allData.assignee}</p>

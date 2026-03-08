@@ -52,14 +52,14 @@ function displayIssur(data) {
 
 
 
-                    <div onclick="openModal(${element.id})"  class="py-2">
+                    <div onclick="openModal(${element.id})"  class="py-3">
                         <div class="flex gap-3"> ${levelElement}</div>
                     </div>
 
-                    <hr class="border-t-2 border-gray-300 my-4 -mx-4">
+                    <hr onclick="openModal(${element.id})" class="border-t-2 border-gray-300 ">
 
 
-                    <div onclick="openModal(${element.id})"  class="text-[#64748B] text-sm space-y-2">
+                    <div onclick="openModal(${element.id})"  class="text-[#64748B] text-sm space-y-2 py-3">
                         <div class="flex justify-between items-center">
                             <p class="text-xs">#${element.id} by john_doe</p>
                             <p class="text-xs">${element.createdAt}</p>

@@ -35,7 +35,7 @@ function displayIssur(data) {
 
         div_card.innerHTML = `
         
-                    <div class="flex justify-between items-center">
+                    <div onclick="openModal(${element.id})"  class="flex justify-between items-center">
                         <div
                             class="flex items-center justify-center bg-green-200 w-8 h-8 border-2 border-dashed border-green-500 rounded-full">
                             <span class="text-green-500 text-sm"></span>
@@ -45,21 +45,21 @@ function displayIssur(data) {
                     </div>
 
 
-                    <div>
-                        <h2 class="font-bold text-xl py-2">${element.title}</h2>
-                        <p class="text-[#64748B] line-clamp-2 ">${element.description}</p>
+                    <div onclick="openModal(${element.id})"  >
+                        <h2 onclick="openModal(${element.id})" class="font-bold text-xl py-2">${element.title}</h2>
+                        <p onclick="openModal(${element.id})"  class="text-[#64748B] line-clamp-2 ">${element.description}</p>
                     </div>
 
 
 
-                    <div class="py-2">
+                    <div onclick="openModal(${element.id})"  class="py-2">
                         <div class="flex gap-3"> ${levelElement}</div>
                     </div>
 
                     <hr class="border-t border-gray-300 my-4">
 
 
-                    <div class="text-[#64748B] text-sm space-y-2">
+                    <div onclick="openModal(${element.id})"  class="text-[#64748B] text-sm space-y-2">
                         <div class="flex justify-between items-center">
                             <p>#${element.id} by john_doe</p>
                             <p>${element.createdAt}</p>

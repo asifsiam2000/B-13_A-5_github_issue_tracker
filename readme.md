@@ -24,12 +24,10 @@ Answer => the spread operator (...) in JavaScript is used to expand or spread el
 It is commonly used with arrays, objects, and function arguments.
  
   for example :
-  const a = [1, 2];
+  const a = [1, 2];                           output this code : result = [1 , 2 , 3 , 4 , 5 , 6]
   const b = [3, 4];
-
   const result = [...a, ...b , 5 , 6 ];
-
-  console.log(result);                             output this code : result = [1 , 2 , 3 , 4 , 5 , 6]
+  console.log(result);
 
 
 
@@ -39,16 +37,16 @@ Answer => map(), filter(), and forEach() are array methods in JavaScript used to
 The main difference is what they return and how they are used.
 
   a. map() - map() is used to create a new array by modifying each element of the original array. for example :
-
-  const numbers = [1, 2, 3, 4];
+     
+  const numbers = [1, 2, 3, 4];                   output : result = [2 , 4 , 6 , 8];
   const result = numbers.map(num => num * 2); 
-  console.log(result);                                         output : result = [2 , 4 , 6 , 8];
+  console.log(result);
 
-  b. filter() - filter() is used to select specific elements based on a condition. for example :
-
-  const numbers = [1, 2, 3, 4, 5];
+  b. filter() - filter() is used to select specific elements based on a condition. for example :  
+   
+  const numbers = [1, 2, 3, 4, 5];                       outpu: reult = [4 , 5];
   const result = numbers.filter(num => num > 3);
-  console.log(result);                              outpu: reult = [4 , 5];
+  console.log(result);
 
   c. forEach()-  forEach() is used to loop through an array and perform an action, but it does not return a new array. for example:
     
@@ -74,6 +72,6 @@ Answer => An arrow function is a short and modern way to write functions in Java
 Answer => Template literals are a way to create strings in JavaScript using backticks ( ) instead of quotes. They make it easier to insert variables and write multiline strings. Template literals use backticks ` `.
 
 for example : 
-             const name = "Asif";
+             const name = "Asif";                 output : Hello Asif
              const message = `Hello ${name}`;
-             console.log(message);                                       output : Hello Asif
+             console.log(message);                                       

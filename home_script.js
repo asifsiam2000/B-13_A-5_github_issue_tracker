@@ -110,8 +110,8 @@ async function openModal(id) {
 
                 <div class="bg-base-200 rounded-lg flex gap-10 p-5">
                     <div>
-                        <p class="text-[#64748B] text-xl py-1">Assignee:</p>
-                        <p class="font-bold text-xl ">${allData.assignee}</p>
+                        <p class="text-[#64748B]  py-1">Assignee:</p>
+                        <p class="font-bold  ">${allData.assignee}</p>
                     </div>
                     <div>
                         <p class="text-[#64748B] py-2">Priority:</p>

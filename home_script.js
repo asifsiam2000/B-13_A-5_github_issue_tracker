@@ -98,7 +98,7 @@ async function openModal(id) {
 
                 <div class="flex gap-1 items-center">
                     <span class="font-bold  px-3 text-white bg-[#00A96E] rounded-full">${allData.status}</span>
-                    <p class="text-[#64748B] text-xs"><i class="fa-solid fa-dot"></i> ${allData.status} by Asif Ahamed Sheam</p>
+                    <p class="text-[#64748B] text-xs"><i class="fa-solid fa-dot"></i> ${allData.status} by ${allData.author}</p>
                     <p class="text-[#64748B] text-xs"><i class="fa-solid fa-dot"></i> ${allData.updatedAt}</p>
                 </div>
 
@@ -111,7 +111,7 @@ async function openModal(id) {
                 <div class="bg-base-200 rounded-lg flex gap-10 p-5">
                     <div>
                         <p class="text-[#64748B] text-xl py-1">Assignee:</p>
-                        <p class="font-bold text-xl ">Asif Ahamed Sheam</p>
+                        <p class="font-bold text-xl ">${allData.assignee}</p>
                     </div>
                     <div>
                         <p class="text-[#64748B] py-2">Priority:</p>

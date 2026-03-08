@@ -19,21 +19,18 @@ function displayIssur(data) {
     cardContainer.innerHTML = '';
 
 
-    // ShowLengthOfData(data.length);
-
-
     data.forEach(element => {
-        // arr.push(element);
+        
         const levelElement = element.labels.map(item => {
             return `<span class="text-xs font-bold px-1  text-black bg-[#ebab63] rounded-full">${item}</span>`}).join('');
     
         const div_card = document.createElement('div');
 
         if (element.status == 'open') {
-            div_card.className = 'space-y-2 p-4 shadow-md show-effect-open';
+            div_card.className = 'flex flex-col justify-between p-4 shadow-md show-effect-open h-full';
         }
         else {
-            div_card.className = 'space-y-2 p-4 shadow-md show-effect-close';
+            div_card.className = 'flex flex-col justify-between p-4 shadow-md show-effect-close h-full';
         }
 
         div_card.innerHTML = `
@@ -59,18 +56,18 @@ function displayIssur(data) {
                         <div class="flex gap-3"> ${levelElement}</div>
                     </div>
 
-                    <hr class="border-t border-gray-300 my-4">
+                    <hr class="border-t-2 border-gray-300 my-4 -mx-4">
 
 
                     <div onclick="openModal(${element.id})"  class="text-[#64748B] text-sm space-y-2">
                         <div class="flex justify-between items-center">
-                            <p>#${element.id} by john_doe</p>
-                            <p>${element.createdAt}</p>
+                            <p class="text-xs">#${element.id} by john_doe</p>
+                            <p class="text-xs">${element.createdAt}</p>
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <p>${element.author}</p>
-                            <p>Updated ${ element.updatedAt}</p>
+                            <p class="text-xs">${element.author}</p>
+                            <p class="text-xs">Updated ${ element.updatedAt}</p>
                         </div>
                         
                     </div>
@@ -130,9 +127,6 @@ async function openModal(id) {
 
     modalDiv.showModal();
 }
-
-
-
 
 async function allIssue() {
     showLoading();

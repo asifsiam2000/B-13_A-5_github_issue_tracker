@@ -191,8 +191,20 @@ function hiddenLoading() {
     loading.classList.add('hidden');
 }
 
+document.getElementById('btn-search').addEventListener('click', async function () {
 
+    const input = document.getElementById('input-search');
+    const searchValue = input.value.trim().toLowerCase();
 
+    const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`);
+
+    const data = await response.json();
+
+    const allData = data.data;
+
+    displayIssur(allData);
+    ShowLengthOfData(allData.length);
+});
 
                             //   working start this section 
 

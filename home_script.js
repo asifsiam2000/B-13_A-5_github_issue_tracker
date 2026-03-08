@@ -5,6 +5,9 @@ const allBtn = document.getElementById('all-btn');
 const openBtn = document.getElementById('open-btn');
 const closeBtn = document.getElementById('close-btn');
 
+
+const modalDiv = document.getElementById('my_modal_1');
+
 let arr = [];
 
 function ShowLengthOfData(len) {
@@ -76,6 +79,60 @@ function displayIssur(data) {
         cardContainer.appendChild(div_card);
     });
 }
+
+
+async function openModal(id) {
+
+    const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+    const data = await response.json();
+    const allData = data.data;
+
+    const levelElement = allData.labels.map(item => {
+        return `<span class="text-xs font-bold px-1 text-black bg-[#ebab63] rounded-full">${item}</span>`
+    }).join('');
+
+    modalDiv.innerHTML = `
+        <div class="modal-box">
+            <div class="space-y-4">
+                <h2 class="font-bold text-2xl">${allData.title}</h2>
+
+                <div class="flex gap-1 items-center">
+                    <span class="font-bold  px-3 text-white bg-[#00A96E] rounded-full">${allData.status}</span>
+                    <p class="text-[#64748B] text-xs"><i class="fa-solid fa-dot"></i> ${allData.status} by Asif Ahamed Sheam</p>
+                    <p class="text-[#64748B] text-xs"><i class="fa-solid fa-dot"></i> ${allData.updatedAt}</p>
+                </div>
+
+                <div class="flex gap-3">
+                    ${levelElement}
+                </div>
+
+                <p class="text-[#64748B]">${allData.description}</p>
+
+                <div class="bg-base-200 rounded-lg flex gap-10 p-5">
+                    <div>
+                        <p class="text-[#64748B] text-xl py-1">Assignee:</p>
+                        <p class="font-bold text-xl ">Asif Ahamed Sheam</p>
+                    </div>
+                    <div>
+                        <p class="text-[#64748B] py-2">Priority:</p>
+                        <p class="bg-red-500 px-2 rounded-full text-center text-white">${allData.priority}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn btn-primary">Close</button>
+                </form>
+            </div>
+        </div>
+    `;
+
+    modalDiv.showModal();
+}
+
+
+
 
 async function allIssue() {
     showLoading();

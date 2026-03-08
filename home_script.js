@@ -79,7 +79,7 @@ function displayIssur(data) {
 
 
 async function openModal(id) {
-
+    showLoading();
     const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
     const data = await response.json();
     const allData = data.data;
@@ -126,6 +126,7 @@ async function openModal(id) {
     `;
 
     modalDiv.showModal();
+     hiddenLoading();
 }
 
 async function allIssue() {
@@ -189,7 +190,7 @@ document.getElementById('btn-search').addEventListener('click', async function (
 
     const input = document.getElementById('input-search');
     const searchValue = input.value.trim().toLowerCase();
-
+     showLoading();
     const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`);
 
     const data = await response.json();
@@ -198,6 +199,7 @@ document.getElementById('btn-search').addEventListener('click', async function (
 
     displayIssur(allData);
     ShowLengthOfData(allData.length);
+     hiddenLoading();
 });
 
                             //   working start this section 

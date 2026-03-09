@@ -33,7 +33,7 @@ function displayIssur(data) {
     data.forEach(element => {
 
         const levelElement = element.labels.map(item => {
-            return `<span class="text-xs font-bold px-2 py-1 text-black bg-[#ebab63] rounded-full">${item}</span>`
+            return `<span class="text-xs font-bold px-1  text-black bg-[#ebab63] rounded-full">${item}</span>`
         }).join('');
 
 
@@ -83,12 +83,12 @@ function displayIssur(data) {
         <div onclick="openModal(${element.id})" class="text-[#64748B] text-xs space-y-2 py-3">
 
             <div class="flex justify-between">
-                <p>#${element.id}</p>
+                <p>#${element.id} by ${element.author}</p>
                 <p>${element.createdAt}</p>
             </div>
 
-            <div class="flex justify-between">
-                <p>${element.author}</p>
+            <div class="flex justify-between text-xs gap-2">
+                <p>Assignee:${element.assignee}</p>
                 <p>Updated ${element.updatedAt}</p>
             </div>
 
@@ -112,7 +112,7 @@ async function openModal(id) {
     const issue = data.data;
 
     const levelElement = issue.labels.map(item => {
-        return `<span class="text-xs font-bold px-2 py-1 text-black bg-[#ebab63] rounded-full">${item}</span>`
+        return `<span class="text-xs font-bold px-1 text-black bg-[#ebab63] rounded-full">${item}</span>`
     }).join('');
 
 
@@ -210,11 +210,16 @@ async function allIssue(){
 
 
 // filter buttons
-function showAll(id){
+
+async function showAll(id){
+
+    showLoading();
+
+    await new Promise(resolve => setTimeout(resolve, 300));
 
     let filtered = arr;
 
-    if(id === 'open-btn'){
+    if (id === 'open-btn') {
         filtered = arr.filter(item => item.status === 'open');
     }
 
@@ -222,15 +227,20 @@ function showAll(id){
         filtered = arr.filter(item => item.status === 'closed');
     }
 
+    if(id === 'all-btn'){
+        filtered = arr;
+    }
+
     displayIssur(filtered);
     ShowLengthOfData(filtered.length);
-
 
     allBtn.classList.remove('btn-active','btn-primary');
     openBtn.classList.remove('btn-active','btn-primary');
     closeBtn.classList.remove('btn-active','btn-primary');
 
     document.getElementById(id).classList.add('btn-active','btn-primary');
+
+    hiddenLoading();
 }
 
 

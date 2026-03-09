@@ -134,7 +134,7 @@ async function openModal(id) {
                 </span>
 
                 <p class="text-[#64748B] text-xs">
-                ${issue.author}
+                ${issue.status} by ${issue.author}
                 </p>
 
                 <p class="text-[#64748B] text-xs">

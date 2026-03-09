@@ -72,7 +72,7 @@ function displayIssur(data) {
         </div>
 
 
-        <div class="py-3">
+        <div onclick="openModal(${element.id})" class="py-3">
             <div class="flex flex-wrap gap-2">
                 ${levelElement}
             </div>
@@ -80,7 +80,7 @@ function displayIssur(data) {
 
         <hr class="border-t-2 border-gray-300">
 
-        <div class="text-[#64748B] text-xs space-y-2 py-3">
+        <div onclick="openModal(${element.id})" class="text-[#64748B] text-xs space-y-2 py-3">
 
             <div class="flex justify-between">
                 <p>#${element.id}</p>
@@ -262,7 +262,7 @@ document.getElementById('btn-search').addEventListener('click', async function()
 
     const data = await response.json();
 
-    const result = data.data;
+    const result = data.data.filter(item => item.title.trim().toLowerCase().includes(value));
 
     displayIssur(result);
     ShowLengthOfData(result.length);

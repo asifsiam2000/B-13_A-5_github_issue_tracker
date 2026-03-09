@@ -155,7 +155,7 @@ async function openModal(id) {
             <div class="bg-base-200 rounded-lg flex flex-col sm:flex-row justify-between gap-4 p-5">
 
                 <div>
-                    <p class="text-[#64748B] text-sm">Assignee</p>
+                    <p class="text-[#64748B] text-sm">Assignee:</p>
                     <p class="font-bold">${issue.assignee}</p>
                 </div>
 
